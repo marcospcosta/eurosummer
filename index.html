@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EUROSUMMER 🏵️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+color:white;
+text-align:center;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+/* MAPA */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/8/80/Iberian_Peninsula_relief_location_map.jpg");
+background-size:cover;
+background-position:center;
+filter:brightness(0.45);
+z-index:-2;
+}
+
+/* GRADIENTE */
+
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#ff7e5f,#feb47b,#ffd166,#06d6a0,#118ab2);
+opacity:.35;
+z-index:-1;
+}
+
+/* CARD CENTRAL */
+
+.container{
+background:rgba(0,0,0,.45);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+max-width:90%;
+}
+
+h1{
+font-family:'Pacifico';
+font-size:clamp(40px,6vw,70px);
+margin:0;
+}
+
+.subtitle{
+opacity:.9;
+margin-top:10px;
+}
+
+#contador{
+font-size:clamp(28px,5vw,50px);
+margin-top:25px;
+font-weight:600;
+}
+
+/* PINS */
+
+.pin{
+position:absolute;
+font-size:28px;
+animation:pinPulse 2s infinite;
+}
+
+@keyframes pinPulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.2)}
+100%{transform:scale(1)}
+}
+
+/* POSIÇÕES (ajustadas pro mapa) */
+
+.lisboa{top:45%;left:46%}
+.madrid{top:42%;left:50%}
+.barcelona{top:41%;left:55%}
+
+/* AVIÃO */
+
+.plane{
+position:absolute;
+font-size:40px;
+top:70%;
+left:-10%;
+animation:planeFly 18s linear infinite;
+}
+
+@keyframes planeFly{
+0%{left:-10%;top:70%}
+50%{top:40%}
+100%{left:70%;top:35%}
+}
+
+/* CRUZEIRO */
+
+.ship{
+position:absolute;
+font-size:40px;
+bottom:18%;
+left:55%;
+animation:shipMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes shipMove{
+from{transform:translateX(-10px)}
+to{transform:translateX(20px)}
+}
+
+/* MOBILE AJUSTES */
+
+@media(max-width:600px){
+
+.pin{
+font-size:22px;
+}
+
+.ship{
+bottom:15%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="plane">✈️</div>
+<div class="ship">🛳️</div>
+
+<div class="pin lisboa">📍</div>
+<div class="pin madrid">📍</div>
+<div class="pin barcelona">📍</div>
+
+<div class="container">
+
+<h1>EUROSUMMER 🏵️</h1>
+
+<p class="subtitle">Contagem regressiva para a viagem dos amigos</p>
+
+<div id="contador"></div>
+
+<p>Lisboa • Madrid • Barcelona • Mediterrâneo</p>
+
+</div>
+
+<script>
+
+const dataViagem = new Date("2026-08-18T00:00:00");
+
+function atualizar(){
+
+const agora = new Date();
+const diff = dataViagem - agora;
+
+if(diff<=0){
+document.getElementById("contador").innerHTML="A VIAGEM COMEÇOU ✈️";
+return;
+}
+
+const d=Math.floor(diff/(1000*60*60*24));
+const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((diff%(1000*60*60))/(1000*60));
+const s=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("contador").innerHTML=
+d+"d "+h+"h "+m+"m "+s+"s";
+
+}
+
+setInterval(atualizar,1000);
+
+</script>
+
+</body>
+</html>
