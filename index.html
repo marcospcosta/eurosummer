@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>EUROSUMMER 🏵️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Lobster&display=swap" rel="stylesheet">
 
 <style>
 
@@ -25,7 +27,7 @@ align-items:center;
 overflow:hidden;
 }
 
-/* MAPA EUROPA */
+/* MAPA REAL DA EUROPA */
 
 body::before{
 content:"";
@@ -34,14 +36,14 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background-image:url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Europe_satellite_globe.jpg");
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/97/Mediterranean_Basin_and_Near_East_satellite_image.jpg");
 background-size:cover;
 background-position:center;
-filter:brightness(0.35);
+filter:brightness(0.55);
 z-index:-2;
 }
 
-/* GRADIENTE */
+/* GRADIENTE SUAVE */
 
 body::after{
 content:"";
@@ -50,71 +52,60 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,#ff7e5f,#feb47b,#ffd166,#06d6a0,#118ab2);
-opacity:.35;
+background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
 z-index:-1;
 }
 
-/* CARD */
+/* CARD CENTRAL */
 
 .container{
-background:rgba(0,0,0,.45);
-padding:40px;
+background:rgba(0,0,0,0.45);
+padding:35px;
 border-radius:20px;
-backdrop-filter:blur(10px);
-max-width:90%;
+backdrop-filter:blur(8px);
+max-width:420px;
+width:90%;
 }
+
+/* TITULO */
 
 h1{
-font-family:'Pacifico';
-font-size:clamp(40px,7vw,75px);
+font-family:'Lobster',cursive;
+font-size:clamp(42px,7vw,70px);
 margin:0;
+letter-spacing:1px;
 }
+
+/* SUBTITULO */
 
 .subtitle{
-opacity:.9;
 margin-top:10px;
+font-size:18px;
+opacity:.9;
 }
 
+/* CONTADOR */
+
 #contador{
-font-size:clamp(28px,5vw,50px);
+font-size:clamp(26px,5vw,42px);
 margin-top:25px;
 font-weight:600;
 }
-
-/* PINS */
-
-.pin{
-position:absolute;
-font-size:32px;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.3)}
-100%{transform:scale(1)}
-}
-
-.lisboa{top:45%;left:44%}
-.madrid{top:42%;left:48%}
-.barcelona{top:41%;left:53%}
 
 /* AVIÃO */
 
 .plane{
 position:absolute;
-font-size:60px;
+font-size:55px;
 top:75%;
 left:-10%;
-animation:fly 18s linear infinite;
+animation:fly 20s linear infinite;
 }
 
 @keyframes fly{
 0%{left:-10%;top:75%}
-40%{top:55%}
-70%{top:40%}
-100%{left:75%;top:35%}
+50%{top:55%}
+100%{left:75%;top:40%}
 }
 
 /* CRUZEIRO */
@@ -123,48 +114,50 @@ animation:fly 18s linear infinite;
 position:absolute;
 font-size:65px;
 bottom:18%;
-left:58%;
-animation:shipMove 6s ease-in-out infinite alternate;
+left:60%;
+animation:ship 6s ease-in-out infinite alternate;
 }
 
-@keyframes shipMove{
+@keyframes ship{
 from{transform:translateX(-15px)}
-to{transform:translateX(25px)}
+to{transform:translateX(20px)}
 }
 
-/* ICONES DE VIAGEM */
+/* ICONES */
 
 .icon{
 position:absolute;
-font-size:35px;
-opacity:0.9;
+font-size:34px;
 animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
 0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
+50%{transform:translateY(-12px)}
 100%{transform:translateY(0)}
 }
 
-.praia{top:18%;right:12%}
-.cerveja{bottom:20%;left:12%}
-.mala{top:25%;left:15%}
+.sun{top:8%;right:20%}
+.beach{top:22%;right:10%}
 .camera{bottom:30%;right:10%}
-.cidade{top:70%;right:35%}
-.sol{top:8%;right:30%}
+.beer{bottom:22%;left:10%}
+.bag{top:28%;left:12%}
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-.pin{font-size:24px}
+.plane{
+font-size:40px;
+}
 
-.plane{font-size:45px}
+.ship{
+font-size:50px;
+}
 
-.ship{font-size:50px}
-
-.icon{font-size:26px}
+.icon{
+font-size:26px;
+}
 
 }
 
@@ -176,22 +169,19 @@ animation:float 6s ease-in-out infinite;
 <div class="plane">✈️</div>
 <div class="ship">🛳️</div>
 
-<div class="pin lisboa">📍</div>
-<div class="pin madrid">📍</div>
-<div class="pin barcelona">📍</div>
-
-<div class="icon praia">🏖️</div>
-<div class="icon cerveja">🍻</div>
-<div class="icon mala">🧳</div>
+<div class="icon sun">☀️</div>
+<div class="icon beach">🏖️</div>
 <div class="icon camera">📸</div>
-<div class="icon cidade">🏙️</div>
-<div class="icon sol">☀️</div>
+<div class="icon beer">🍻</div>
+<div class="icon bag">🧳</div>
 
 <div class="container">
 
 <h1>EUROSUMMER 🏵️</h1>
 
-<p class="subtitle">Contagem regressiva para a viagem dos amigos</p>
+<p class="subtitle">
+Contagem regressiva para a viagem
+</p>
 
 <div id="contador"></div>
 
