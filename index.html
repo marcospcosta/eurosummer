@@ -9,7 +9,9 @@
 
 <style>
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
@@ -23,7 +25,7 @@ align-items:center;
 overflow:hidden;
 }
 
-/* MAPA */
+/* MAPA EUROPA */
 
 body::before{
 content:"";
@@ -32,10 +34,10 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background-image:url("https://upload.wikimedia.org/wikipedia/commons/8/80/Iberian_Peninsula_relief_location_map.jpg");
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Europe_satellite_globe.jpg");
 background-size:cover;
 background-position:center;
-filter:brightness(0.45);
+filter:brightness(0.35);
 z-index:-2;
 }
 
@@ -53,7 +55,7 @@ opacity:.35;
 z-index:-1;
 }
 
-/* CARD CENTRAL */
+/* CARD */
 
 .container{
 background:rgba(0,0,0,.45);
@@ -65,7 +67,7 @@ max-width:90%;
 
 h1{
 font-family:'Pacifico';
-font-size:clamp(40px,6vw,70px);
+font-size:clamp(40px,7vw,75px);
 margin:0;
 }
 
@@ -84,64 +86,85 @@ font-weight:600;
 
 .pin{
 position:absolute;
-font-size:28px;
-animation:pinPulse 2s infinite;
+font-size:32px;
+animation:pulse 2s infinite;
 }
 
-@keyframes pinPulse{
+@keyframes pulse{
 0%{transform:scale(1)}
-50%{transform:scale(1.2)}
+50%{transform:scale(1.3)}
 100%{transform:scale(1)}
 }
 
-/* POSIÇÕES (ajustadas pro mapa) */
-
-.lisboa{top:45%;left:46%}
-.madrid{top:42%;left:50%}
-.barcelona{top:41%;left:55%}
+.lisboa{top:45%;left:44%}
+.madrid{top:42%;left:48%}
+.barcelona{top:41%;left:53%}
 
 /* AVIÃO */
 
 .plane{
 position:absolute;
-font-size:40px;
-top:70%;
+font-size:60px;
+top:75%;
 left:-10%;
-animation:planeFly 18s linear infinite;
+animation:fly 18s linear infinite;
 }
 
-@keyframes planeFly{
-0%{left:-10%;top:70%}
-50%{top:40%}
-100%{left:70%;top:35%}
+@keyframes fly{
+0%{left:-10%;top:75%}
+40%{top:55%}
+70%{top:40%}
+100%{left:75%;top:35%}
 }
 
 /* CRUZEIRO */
 
 .ship{
 position:absolute;
-font-size:40px;
+font-size:65px;
 bottom:18%;
-left:55%;
+left:58%;
 animation:shipMove 6s ease-in-out infinite alternate;
 }
 
 @keyframes shipMove{
-from{transform:translateX(-10px)}
-to{transform:translateX(20px)}
+from{transform:translateX(-15px)}
+to{transform:translateX(25px)}
 }
 
-/* MOBILE AJUSTES */
+/* ICONES DE VIAGEM */
+
+.icon{
+position:absolute;
+font-size:35px;
+opacity:0.9;
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+.praia{top:18%;right:12%}
+.cerveja{bottom:20%;left:12%}
+.mala{top:25%;left:15%}
+.camera{bottom:30%;right:10%}
+.cidade{top:70%;right:35%}
+.sol{top:8%;right:30%}
+
+/* MOBILE */
 
 @media(max-width:600px){
 
-.pin{
-font-size:22px;
-}
+.pin{font-size:24px}
 
-.ship{
-bottom:15%;
-}
+.plane{font-size:45px}
+
+.ship{font-size:50px}
+
+.icon{font-size:26px}
 
 }
 
@@ -156,6 +179,13 @@ bottom:15%;
 <div class="pin lisboa">📍</div>
 <div class="pin madrid">📍</div>
 <div class="pin barcelona">📍</div>
+
+<div class="icon praia">🏖️</div>
+<div class="icon cerveja">🍻</div>
+<div class="icon mala">🧳</div>
+<div class="icon camera">📸</div>
+<div class="icon cidade">🏙️</div>
+<div class="icon sol">☀️</div>
 
 <div class="container">
 
