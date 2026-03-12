@@ -20,14 +20,14 @@ margin:0;
 font-family:'Poppins',sans-serif;
 color:white;
 text-align:center;
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 overflow:hidden;
 }
 
-/* MAPA REAL DA EUROPA */
+/* FUNDO VERÃO */
 
 body::before{
 content:"";
@@ -36,14 +36,13 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/97/Mediterranean_Basin_and_Near_East_satellite_image.jpg");
+background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
 background-size:cover;
 background-position:center;
-filter:brightness(0.55);
 z-index:-2;
 }
 
-/* GRADIENTE SUAVE */
+/* GRADIENTE LEVE */
 
 body::after{
 content:"";
@@ -52,34 +51,38 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.35));
+background:linear-gradient(
+45deg,
+rgba(255,180,120,0.25),
+rgba(255,220,120,0.25),
+rgba(120,200,255,0.25)
+);
 z-index:-1;
 }
 
-/* CARD CENTRAL */
+/* CARD */
 
 .container{
 background:rgba(0,0,0,0.45);
-padding:35px;
+padding:45px;
 border-radius:20px;
-backdrop-filter:blur(8px);
-max-width:420px;
+backdrop-filter:blur(10px);
 width:90%;
+max-width:520px;
 }
 
 /* TITULO */
 
 h1{
 font-family:'Lobster',cursive;
-font-size:clamp(42px,7vw,70px);
+font-size:clamp(48px,5vw,72px);
 margin:0;
-letter-spacing:1px;
 }
 
 /* SUBTITULO */
 
 .subtitle{
-margin-top:10px;
+margin-top:12px;
 font-size:18px;
 opacity:.9;
 }
@@ -87,7 +90,7 @@ opacity:.9;
 /* CONTADOR */
 
 #contador{
-font-size:clamp(26px,5vw,42px);
+font-size:clamp(30px,4vw,46px);
 margin-top:25px;
 font-weight:600;
 }
@@ -96,30 +99,29 @@ font-weight:600;
 
 .plane{
 position:absolute;
-font-size:55px;
-top:75%;
-left:-10%;
-animation:fly 20s linear infinite;
+font-size:60px;
+bottom:18%;
+left:-80px;
+animation:fly 18s linear infinite;
 }
 
 @keyframes fly{
-0%{left:-10%;top:75%}
-50%{top:55%}
-100%{left:75%;top:40%}
+0%{left:-80px}
+100%{left:110%}
 }
 
 /* CRUZEIRO */
 
 .ship{
 position:absolute;
-font-size:65px;
-bottom:18%;
-left:60%;
+font-size:70px;
+bottom:8%;
+right:15%;
 animation:ship 6s ease-in-out infinite alternate;
 }
 
 @keyframes ship{
-from{transform:translateX(-15px)}
+from{transform:translateX(-20px)}
 to{transform:translateX(20px)}
 }
 
@@ -137,26 +139,32 @@ animation:float 6s ease-in-out infinite;
 100%{transform:translateY(0)}
 }
 
-.sun{top:8%;right:20%}
-.beach{top:22%;right:10%}
-.camera{bottom:30%;right:10%}
-.beer{bottom:22%;left:10%}
-.bag{top:28%;left:12%}
+.sun{top:5%;right:8%}
+.beach{top:25%;right:5%}
+.camera{bottom:25%;right:5%}
+.beer{bottom:15%;left:5%}
+.bag{top:20%;left:5%}
 
 /* MOBILE */
 
 @media(max-width:600px){
 
+.container{
+padding:30px;
+}
+
 .plane{
 font-size:40px;
+bottom:22%;
 }
 
 .ship{
 font-size:50px;
+bottom:10%;
 }
 
 .icon{
-font-size:26px;
+font-size:24px;
 }
 
 }
